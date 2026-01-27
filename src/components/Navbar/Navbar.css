@@ -1,12 +1,24 @@
 /* Navbar container */
 nav {
-  background-color: #000000; /* Tailwind gray-900 */
-  color: white;
-  padding: 0.75rem 1.5rem; /* py-3 px-6 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: rgba(0, 0, 0, 0.55); /* semi-transparent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  padding: 0.75rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+
 
 /* Logo section */
 nav .logo {
