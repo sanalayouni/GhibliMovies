@@ -62,3 +62,33 @@
   color: #f1f1f1;
    margin-top: 5rem;
 }
+.hero-bnts {
+  position: absolute;
+  bottom: 170px;
+  left: 7%;
+  display: flex;
+  gap: 2rem;
+}
+
+.hero-bnts button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+
+  color: #000;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.hero-bnts button:hover {
+  color: #454444;
+}
+
+.hero-bnts button img {
+  width: 20px;
+  height: 20px;
+}

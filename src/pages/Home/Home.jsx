@@ -3,7 +3,10 @@ import './Home.css'
 import Navbar from '../../components/Navbar/Navbar'
 import hero from '../../assets/back.jpg'
 import poster from '../../assets/Spirited Away Movie Poster.jpg'
-
+import play_icon from '../../assets/play.png'
+import info_icon from '../../assets/info.png'
+import TitleCards from '../../components/TitleCards/TitleCards'
+import Footer from '../../components/Footer/Footer'
 const Home = () => {
   return (
     <div className="home">
@@ -26,7 +29,22 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div className="hero-bnts">
+            <button className='btn'> <img src={play_icon} alt="Play" /> Play</button>
+            <button className='btn'> <img src={info_icon} alt="More Info" /> More Info</button>
+      </div>
+      <TitleCards />
+      <div className="More movies">
+        <TitleCards />
+        <TitleCards />
+        <TitleCards />
+      </div>
+      <div className="Footer">
+        <Footer/>
+      </div>
     </div>
+
+    
   )
 }
 
