@@ -8,7 +8,8 @@ const TitleCards = () => {
             <h1>Popular on Ghibli Mori</h1>
             <div className="card-list">
                 {cardsData.map((card) => (
-                    <div key={card.id}>
+                    
+                    <div className="movie-card" key={card.id}>
                         <img src={card.image} alt={card.title} />
                         <h2>{card.title}</h2>
                     </div>

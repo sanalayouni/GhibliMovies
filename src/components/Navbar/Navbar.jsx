@@ -18,13 +18,17 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="nav-links">
-          <a href="#" className="hover:text-gray-300 font-medium bg-gray-800 px-3 py-1 rounded">Dashboard</a>
-          <a href="#" className="hover:text-gray-300 font-medium">Team</a>
-          <a href="#" className="hover:text-gray-300 font-medium">Projects</a>
-          <a href="#" className="hover:text-gray-300 font-medium">Calendar</a>
+          <a href="#" className="hover:text-gray-300 font-medium bg-gray-800 px-3 py-1 rounded">Home</a>
+          <a href="#" className="hover:text-gray-300 font-medium">Movies</a>
+          <a href="#" className="hover:text-gray-300 font-medium">Genres</a>
+          <a href="#" className="hover:text-gray-300 font-medium">Top Rated</a>
+          <a href="#" className="ai-movie-link">
+  AI Movie Match
+  <span className="new-badge">NEW</span>
+</a>
         </div>
 
-        {/* Search and Profile */}
+        {/* Search  */}
         <div className="search-profile">
           <input 
             type="text" 
@@ -32,11 +36,11 @@ const Navbar = () => {
             className="rounded-md px-2 py-1 text-black focus:outline-none"
           />
           <button className="hover:text-gray-300">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405M19 11a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </button>
-          <img src={profile} alt="Profile" className="w-10 h-8 rounded-full" />
+          
         </div>
       </nav>
     </div>

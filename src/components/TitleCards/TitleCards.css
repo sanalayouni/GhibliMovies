@@ -29,3 +29,9 @@
 
 
 }
+/* Hover / touch pop effect */
+.movie-card img:hover,
+.movie-card img:focus {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 25px rgba(155, 211, 255, 0.6);
+}

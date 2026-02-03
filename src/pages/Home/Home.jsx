@@ -3,10 +3,10 @@ import './Home.css'
 import Navbar from '../../components/Navbar/Navbar'
 import hero from '../../assets/back.jpg'
 import poster from '../../assets/Spirited Away Movie Poster.jpg'
-import play_icon from '../../assets/play.png'
-import info_icon from '../../assets/info.png'
+import winner from '../../assets/winner.png'
 import TitleCards from '../../components/TitleCards/TitleCards'
 import Footer from '../../components/Footer/Footer'
+
 const Home = () => {
   return (
     <div className="home">
@@ -29,9 +29,12 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div className="hero-actions">
       <div className="hero-bnts">
-            <button className='btn'> <img src={play_icon} alt="Play" /> Play</button>
-            <button className='btn'> <img src={info_icon} alt="More Info" /> More Info</button>
+            <button className="btn">Play</button>
+            <button className='btn'> Details</button>
+      </div>
+      <img src={winner} alt="winner" className="winner" />
       </div>
       <TitleCards />
       <div className="More movies">
