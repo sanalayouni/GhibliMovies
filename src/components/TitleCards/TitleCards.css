@@ -1,37 +1,51 @@
-.title-cards{
+.title-cards {
     margin-top: 50px;
     margin-bottom: 30px;
     padding-left: 6%;
-    
 }
-.title-cards h2{
-   margin-bottom:8px;
-   font-size: 20px;
-   font-weight: 600;
-   color: white;
+
+.title-cards > h1 {
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    padding-left: 50px;
+    padding-top: 20px;
 }
-.card-list{
+
+.card-list {
     display: flex;
     gap: 20px;
     overflow-x: scroll;
 }
-.card-list::-webkit-scrollbar{
+
+.card-list::-webkit-scrollbar {
     display: none;
 }
-.card-list img{
+
+.movie-card {
+    flex-shrink: 0;
+}
+
+.movie-card img {
     width: 250px;
     height: 350px;
     border-radius: 7px;
-    cursor: pointer;}
-.title-cards h2{
-    padding-left: 50px;
-    padding-top: 20px;
-
-
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.movie-card h2 {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+}
+
 /* Hover / touch pop effect */
 .movie-card img:hover,
 .movie-card img:focus {
-  transform: scale(1.05) translateY(-5px);
-  box-shadow: 0 15px 25px rgba(155, 211, 255, 0.6);
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 15px 25px rgba(155, 211, 255, 0.6);
 }
