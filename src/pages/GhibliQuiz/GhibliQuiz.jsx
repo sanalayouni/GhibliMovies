@@ -1,11 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './GhibliQuiz.css';
 import chihiroImg from '../../assets/characters/chihiro.gif';
+import AshitakaImg from '../../assets/characters/Ashitaka.gif';
+import NausicaaImg from '../../assets/characters/Nausicaä.gif';
+import HowlImg from '../../assets/characters/Howl.gif';
+import sanImg from '../../assets/characters/san.gif';
+import sophieImg from '../../assets/characters/sophie.gif';
+import totoroImg from '../../assets/characters/totoro.gif';
+import kikiImg from '../../assets/characters/kiki.gif';
 
 const GhibliQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
   const [result, setResult] = useState(null);
+  const [ghibliMovies, setGhibliMovies] = useState([]);
+  const [loadingMovies, setLoadingMovies] = useState(true);
+
+  // Fetch movies from Ghibli API on component mount
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const response = await fetch('https://ghibliapi.vercel.app/films');
+        const data = await response.json();
+        setGhibliMovies(data);
+        setLoadingMovies(false);
+      } catch (error) {
+        console.error('Error fetching Ghibli movies:', error);
+        setLoadingMovies(false);
+      }
+    };
+
+    fetchMovies();
+  }, []);
 
   const questions = [
     {
@@ -76,56 +102,56 @@ const GhibliQuiz = () => {
       movie: "Spirited Away",
       description: "Like Chihiro, you possess incredible inner strength and determination. You grow through challenges and never give up, even when things seem impossible.",
       traits: ["brave", "determined", "caring"],
-      image: "🌊"
+      image: chihiroImg
     },
     sophie: {
       name: "Sophie",
       movie: "Howl's Moving Castle",
       description: "You share Sophie's kind heart and quiet strength. You're thoughtful, caring, and discover your own magic through compassion and self-acceptance.",
       traits: ["caring", "thoughtful", "gentle"],
-      image: "🏰"
+      image: sophieImg
     },
     san: {
       name: "San",
       movie: "Princess Mononoke",
       description: "Like San, you're fiercely independent and deeply connected to nature. You're brave, loyal, and willing to fight for what you believe in.",
       traits: ["brave", "nature", "independent"],
-      image: chihiroImg
+      image: sanImg
     },
     kiki: {
       name: "Kiki",
       movie: "Kiki's Delivery Service",
       description: "You embody Kiki's adventurous spirit and independence. You're creative, determined, and find your own path while maintaining your kind heart.",
       traits: ["adventurous", "independent", "creative"],
-      image: "🧹"
+      image: kikiImg
     },
     totoro: {
       name: "Totoro",
       movie: "My Neighbor Totoro",
       description: "Like Totoro, you're gentle, nurturing, and bring calm wherever you go. You have a deep connection with nature and a comforting presence.",
       traits: ["gentle", "nature", "calm"],
-      image: "🌳"
+      image: totoroImg
     },
     howl: {
       name: "Howl",
       movie: "Howl's Moving Castle",
       description: "You share Howl's creative brilliance and complex nature. You're independent, artistic, and hide a caring heart beneath your mysterious exterior.",
       traits: ["creative", "independent", "caring"],
-      image: "✨"
+      image: HowlImg
     },
     ashitaka: {
       name: "Ashitaka",
       movie: "Princess Mononoke",
       description: "Like Ashitaka, you're wise beyond your years, brave, and seek understanding. You bridge different worlds with compassion and inner strength.",
       traits: ["wise", "brave", "thoughtful"],
-      image: "🏹"
+      image: AshitakaImg
     },
     nausicaa: {
       name: "Nausicaä",
       movie: "Nausicaä of the Valley of the Wind",
       description: "You embody Nausicaä's courage, wisdom, and deep love for all living things. You're a natural leader with a profound connection to nature.",
       traits: ["brave", "nature", "wise"],
-      image: "🦋"
+      image: NausicaaImg
     }
   };
 
@@ -142,6 +168,11 @@ const GhibliQuiz = () => {
     independent: ["Kiki's Delivery Service", "Whisper of the Heart", "Howl's Moving Castle"],
     loyal: ["Castle in the Sky", "Porco Rosso", "Spirited Away"],
     determined: ["Spirited Away", "The Wind Rises", "Castle in the Sky"]
+  };
+
+  // Helper function to get movie data from API
+  const getMovieData = (movieTitle) => {
+    return ghibliMovies.find(movie => movie.title === movieTitle);
   };
 
   const handleAnswer = (option) => {
@@ -252,16 +283,33 @@ const GhibliQuiz = () => {
               <div className="ghibli-quiz-recommendations-section">
                 <h3 className="ghibli-quiz-section-title">Your Ghibli Movie Recommendations</h3>
                 <div className="ghibli-quiz-movies-grid">
-                  {result.movies.map((movie, index) => (
-                    <div
-                      key={movie}
-                      className="ghibli-quiz-movie-card"
-                      style={{ animationDelay: `${0.2 + index * 0.1}s` }}
-                    >
-                      <div className="ghibli-quiz-movie-icon">🎬</div>
-                      <h4>{movie}</h4>
-                    </div>
-                  ))}
+                  {result.movies.map((movie, index) => {
+                    const movieData = getMovieData(movie);
+                    return (
+                      <div
+                        key={movie}
+                        className="ghibli-quiz-movie-card"
+                        style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+                      >
+                        {movieData && movieData.image && (
+                          <div className="ghibli-quiz-movie-image-container">
+                            <img 
+                              src={movieData.image} 
+                              alt={movieData.title}
+                              className="ghibli-quiz-movie-image"
+                            />
+                          </div>
+                        )}
+                        <div className="ghibli-quiz-movie-content">
+                          <div className="ghibli-quiz-movie-icon">🎬</div>
+                          <h4>{movie}</h4>
+                          {movieData && (
+                            <p className="ghibli-quiz-movie-year">{movieData.release_date}</p>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 

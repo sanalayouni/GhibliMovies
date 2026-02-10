@@ -819,3 +819,37 @@
   border: 5px solid rgba(138, 43, 226, 0.5);
   box-shadow: 0 10px 40px rgba(138, 43, 226, 0.6);
 }
+
+.ghibli-quiz-movie-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.ghibli-quiz-movie-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 12px;
+}
+
+.ghibli-quiz-movie-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.ghibli-quiz-movie-card:hover .ghibli-quiz-movie-image {
+  transform: scale(1.05);
+}
+
+.ghibli-quiz-movie-content {
+  padding: 0 12px 12px;
+}
+
+.ghibli-quiz-movie-year {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 4px;
+}
