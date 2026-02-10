@@ -1,7 +1,8 @@
 import React from 'react'
 import './Navbar.css'
 import logo from '../../assets/g.png'
-import profile from '../../assets/profile_icon.png'
+import { NavLink } from 'react-router-dom'
+
 
 
 const Navbar = () => {
@@ -22,10 +23,10 @@ const Navbar = () => {
           <a href="#" className="hover:text-gray-300 font-medium">Movies</a>
           <a href="#" className="hover:text-gray-300 font-medium">Genres</a>
           <a href="#" className="hover:text-gray-300 font-medium">Top Rated</a>
-          <a href="#" className="ai-movie-link">
+          <NavLink to="/Quiz" className="ai-movie-link">
   AI Movie Match
   <span className="new-badge">NEW</span>
-</a>
+</NavLink>
         </div>
 
         {/* Search  */}

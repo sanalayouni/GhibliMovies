@@ -7,6 +7,26 @@ import winner from '../../assets/winner.png'
 import TitleCards from '../../components/TitleCards/TitleCards'
 import Footer from '../../components/Footer/Footer'
 
+const POPULAR_GHIBLI = [
+  { id: 129 },
+  { id: 128 },
+  { id: 4935 },
+  { id: 129 },
+  { id: 128 },
+  { id: 4935 }
+]
+
+const CLASSIC_GHIBLI = [
+  { id: 10515 },
+  { id: 8392 },
+  { id: 11621 }
+]
+
+const KIDS_GHIBLI = [
+  { id: 16859 }
+]
+
+
 const Home = () => {
   return (
     <div className="home">
@@ -38,9 +58,21 @@ const Home = () => {
       </div>
       <TitleCards />
       <div className="More movies">
-        <TitleCards />
-        <TitleCards />
-        <TitleCards />
+        <TitleCards
+  title="Popular on Ghibli Mori"
+  movieList={POPULAR_GHIBLI}
+/>
+
+<TitleCards
+  title="Ghibli Classics"
+  movieList={CLASSIC_GHIBLI}
+/>
+
+<TitleCards
+  title="For Kids"
+  movieList={KIDS_GHIBLI}
+/>
+
       </div>
       <div className="Footer">
         <Footer/>

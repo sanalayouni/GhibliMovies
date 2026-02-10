@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './MovieDetails.css'
-import navbar from '../../components/Navbar/Navbar'
+import Navbar from '../../components/Navbar/Navbar'
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY
 const BASE_IMG = 'https://image.tmdb.org/t/p/original'
@@ -67,7 +67,9 @@ const MovieDetails = () => {
     }
   }
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return <div class="loader-wrapper"><div class="spinner">
+    <div class="spinner1"></div>
+</div></div>
 
   // Get director from crew
   const director = movie.credits?.crew?.find(
@@ -88,8 +90,7 @@ const MovieDetails = () => {
 
   return (
     <>
-    <navbar/>
-
+    <Navbar/>
     <div className="movie-details">
       
       <div
