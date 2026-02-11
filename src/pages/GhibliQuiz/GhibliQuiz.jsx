@@ -8,6 +8,7 @@ import sanImg from '../../assets/characters/san.gif';
 import sophieImg from '../../assets/characters/sophie.gif';
 import totoroImg from '../../assets/characters/totoro.gif';
 import kikiImg from '../../assets/characters/kiki.gif';
+import Navbar from '../../components/Navbar/Navbar';
 
 const GhibliQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -242,6 +243,8 @@ const GhibliQuiz = () => {
 
   if (result) {
     return (
+      <>
+      <Navbar/>
       <div className="ghibli-quiz">
         <div className="ghibli-quiz-background-glow"></div>
         <div className="ghibli-quiz-particles"></div>
@@ -322,10 +325,13 @@ const GhibliQuiz = () => {
           </div>
         </div>
       </div>
+      </>
     );
   }
 
   return (
+    <>
+    <Navbar/>
     <div className="ghibli-quiz">
       <div className="ghibli-quiz-background-glow"></div>
       <div className="ghibli-quiz-particles"></div>
@@ -371,6 +377,7 @@ const GhibliQuiz = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

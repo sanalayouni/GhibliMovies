@@ -19,7 +19,9 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="nav-links">
-          <a href="#" className="hover:text-gray-300 font-medium bg-gray-800 px-3 py-1 rounded">Home</a>
+          <NavLink to="/Home" className="ai-movie-link">
+  Home
+</NavLink>
           <a href="#" className="hover:text-gray-300 font-medium">Movies</a>
           <a href="#" className="hover:text-gray-300 font-medium">Genres</a>
           <a href="#" className="hover:text-gray-300 font-medium">Top Rated</a>
